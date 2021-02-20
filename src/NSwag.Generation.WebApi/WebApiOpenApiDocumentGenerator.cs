@@ -120,19 +120,21 @@ namespace NSwag.Generation.WebApi
                 document.Info = new OpenApiInfo();
             }
 
-            if (string.IsNullOrEmpty(Settings.DocumentTemplate))
+            //if (string.IsNullOrEmpty(Settings.DocumentTemplate))
             {
-                if (!string.IsNullOrEmpty(Settings.Title))
+                if (!string.IsNullOrEmpty(Settings.Title) &&
+                    (string.IsNullOrEmpty(document.Info.Title) || document.Info.Title == OpenApiInfo.DefaultTitle))
                 {
                     document.Info.Title = Settings.Title;
                 }
 
-                if (!string.IsNullOrEmpty(Settings.Description))
+                if (!string.IsNullOrEmpty(Settings.Description) && string.IsNullOrEmpty(document.Info.Description))
                 {
                     document.Info.Description = Settings.Description;
                 }
 
-                if (!string.IsNullOrEmpty(Settings.Version))
+                if (!string.IsNullOrEmpty(Settings.Version) &&
+                    (string.IsNullOrEmpty(document.Info.Version) || document.Info.Version == OpenApiInfo.DefaultVersion))
                 {
                     document.Info.Version = Settings.Version;
                 }

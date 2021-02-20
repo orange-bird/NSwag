@@ -14,10 +14,16 @@ namespace NSwag
     /// <summary>The web service description.</summary>
     public class OpenApiInfo : JsonExtensionObject
     {
+        /// <summary>Default title</summary>
+        public const string DefaultTitle = "Swagger specification";
+
+        /// <summary>Default API version</summary>
+        public const string DefaultVersion = "1.0.0";
+
         /// <summary>Gets or sets the title.</summary>
         [JsonProperty(PropertyName = "title", Required = Required.Always,
             DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public string Title { get; set; } = "Swagger specification";
+        public string Title { get; set; } = DefaultTitle;
 
         /// <summary>Gets or sets the description.</summary>
         [JsonProperty(PropertyName = "description", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
@@ -37,6 +43,6 @@ namespace NSwag
 
         /// <summary>Gets or sets the API version.</summary>
         [JsonProperty(PropertyName = "version", Required = Required.Always, DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public string Version { get; set; } = "1.0.0";
+        public string Version { get; set; } = DefaultVersion;
     }
 }
